@@ -1,10 +1,16 @@
 <script setup lang="ts">
 
 let root = document.querySelector('html')
+const theme = localStorage.getItem('theme');
+
+if (theme === 'dark') {
+  root.classList.add('dark');
+}
 
 function toggle() {
 	console.log('toggle theme');
 	root?.classList.toggle('dark')
+	localStorage.setItem('theme', root?.classList.contains('dark')? 'dark' : 'light');
 }
 
 </script>
